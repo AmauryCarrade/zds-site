@@ -9,8 +9,8 @@ h3 {
 
     &,
     a {
-        color: darken($color-secondary, 11%);
-        margin-top: 40px;
+        color: $accent-900;
+        margin-top: $length-48;
         text-decoration: none;
     }
 
@@ -18,50 +18,46 @@ h3 {
     a:focus {
         text-decoration: underline;
     }
+
+    &.not-ready a {
+        color: $color-not-ready-content;
+    }
 }
 
 h2 {
-    font-size: 22px;
-    font-size: 2.2rem;
+    font-size: $size-6;
     line-height: 50px;
-    margin-bottom: 20px;
-    background: #FFF;
-    border-top: 1px solid #e0e4e5;
+    margin-bottom: $length-20;
+    background: $white;
+    border-top: 1px solid $grey-100;
     padding-left: 1%;
     font-weight: 400;
-
-    &.not-ready a {
-        color: $color-not-ready-content;
-    }
 }
 
 h3 {
-    font-size: 20px;
-    font-size: 2.0rem;
-    margin-bottom: 14px;
-    &.not-ready a {
-        color: $color-not-ready-content;
-    }
+    font-size: $size-7;
+    margin-bottom: $length-14;
 }
 
 h4 {
-    font-size: 18px;
-    font-size: 1.8rem;
-    margin-bottom: 12px;
+    font-size: $size-8;
+    margin-bottom: $length-12;
 }
 
 h5 {
-    font-size: 16px;
-    font-size: 1.6rem;
-    margin-bottom: 10px;
+    font-size: $size-9;
+    margin-bottom: $length-10;
 }
 
 h6 {
-    font-size: 15px;
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+    font-size: $size-10;
+    margin-bottom: $length-10;
 }
 
+// Buttons displayed in a h2 title block, at the very right.
+// TODO This is placed using a very weird system: the item is
+//      under the block and placed above using a negative margin.
+//      We should refactor this to use proper alignment.
 .actions-title {
     float: right;
     margin: -60px 10px 0 0;
@@ -87,29 +83,32 @@ h6 {
 
 
 .custom-block {
-    margin: 25px 0;
+    margin: $length-24 0;
 }
-.custom-block-body {
-    padding: 7px 15px 7px 45px;
 
-    &:after{
+.custom-block-body {
+    padding: $length-6 $length-14 $length-6 $length-48;
+
+    &:after {
         position: absolute;
         top: 50%;
-        left: 23px;
-        margin: -11px 0 0 -11px;
+        left: $length-16;
+        margin: -$length-12 0 0 -$length-12;
         height: 22px;
         width: 22px;
     }
 }
+
 .custom-block-heading {
-    padding: 3px 15px 3px 15px;
+    padding: $length-2 $length-12;
     font-weight: bold;
 }
+
 .custom-block-information {
     background: $primary-100;
 
     .custom-block-heading {
-        color: white;
+        color: $white;
         background: $primary-500;
     }
 
@@ -117,52 +116,58 @@ h6 {
         @include sprite-position($information);
     }
 }
+
 .custom-block-question {
-    background: #e2daee;
+    background: $purple-100;
 
     .custom-block-heading {
-        color: white;
-        background: lighten(#541BAC, 25%);
+        color: $white;
+        background: $purple-800;
     }
 
     .custom-block-body:after {
         @include sprite-position($question);
     }
 }
+
 .custom-block-error {
-    background: #eedada;
+    background: $red-100;
 
     .custom-block-heading {
-        color: white;
-        background: lighten(#B51C1C, 20%);
+        color: $white;
+        background: $red-800;
     }
 
     .custom-block-body:after {
         @include sprite-position($error);
     }
 }
+
 .custom-block-warning {
-    background: #eee7da;
+    background: $accent-200;
 
     .custom-block-heading {
-        color: white;
-        background: lighten(#E6A224, 10%);
+        color: $white;
+        background: $accent-800;
     }
 
     .custom-block-body:after {
         @include sprite-position($warning);
     }
 }
+
 .custom-block-neutral,
 .custom-block-spoiler {
-    background: #EEE;
+    background: $grey-200;
 
     .custom-block-heading {
-        color: white;
-        background: darken(#EEE, 40%);
+        color: $white;
+        background: $grey-700;
     }
 
     .custom-block-body {
+        padding: 0 $length-12 $length-2;
+
         &:after {
             display: none;
         }
@@ -174,19 +179,15 @@ h6 {
 }
 .spoiler-title {
     display: block;
-    background: #EEE;
-    margin: 15px 0;
-    padding: 3px 15px 3px 40px;
+    background: $grey-100;
+    margin: $length-16 0 0;
+    padding: $length-2 $length-14 $length-2 $length-32;
     text-decoration: none;
-    border-bottom: 1px solid #DDD;
-    color: #555;
+    border-bottom: 1px solid $grey-200;
+    color: $grey-700;
 
     &.ico-after:after {
-        margin: 8px 0 0 10px;
-    }
-
-    &:nth-last-child(2) {
-        margin-bottom: 15px;
+        margin: $length-6 0 0 $length-10;
     }
 
     &:hover {
@@ -214,28 +215,28 @@ h6 {
         }
     }
     &.information {
-        background: #daeaee;
+        background: $primary-100;
 
         &.ico-after:after {
             @include sprite-position($information);
         }
     }
     &.question {
-        background: #e2daee;
+        background: $purple-100;
 
         &.ico-after:after {
             @include sprite-position($question);
         }
     }
     &.error {
-        background: #eedada;
+        background: $red-100;
 
         &.ico-after:after {
             @include sprite-position($error);
         }
     }
     &.warning {
-        background: #eee7da;
+        background: $accent-200;
 
         &.ico-after:after {
             @include sprite-position($warning);
@@ -256,7 +257,7 @@ img {
 }
 
 figure {
-    margin: 30px 0;
+    margin: $length-32 0;
     text-align: center;
 }
 
@@ -286,14 +287,14 @@ figure > {
     }
 
     blockquote ~ figcaption {
-        padding: 0 0 1px 2%;
+        padding: 0 0 $length-1 2%;
         font-style: italic;
         text-align: left;
-        color: #999;
-        border-left: 5px solid #CCC;
+        color: $grey-700;
+        border-left: $length-4 solid $grey-200;
 
         p {
-            margin: 0 0 5px;
+            margin: 0 0 $length-4;
         }
 
         p:before {
@@ -304,24 +305,24 @@ figure > {
 
 blockquote {
     margin: 0;
-    color: #777;
-    padding: 1px 2%;
-    border-left: 5px solid #CCC;
+    color: $grey-700;
+    padding: $length-1 2%;
+    border-left: $length-4 solid $grey-200;
 
     & > p:first-child {
-        margin-top: 5px;
+        margin-top: $length-4;
     }
 
     & > p:last-child {
-        margin-bottom: 5px;
+        margin-bottom: $length-4;
     }
 
     figure {
-        margin: 15px 0;
+        margin: $length-14 0;
     }
 
     &:last-child {
-        margin-bottom: 15px;
+        margin-bottom: $length-14;
     }
 }
 
@@ -337,13 +338,13 @@ samp {
 
 // touche
 kbd {
-    background-color: $color-keyboard;
-    padding: 2px 6px;
-    border-radius: 3px;
-    border: solid 1px desaturate(darken($color-keyboard, 15%), 10%);
-    border-bottom-width: 3px;
-    text-shadow: 0 1px 0 #FFF;
-    color: darken($color-keyboard, 70%);
+    background-color: $accent-100;
+    padding: $length-2 $length-6;
+    border-radius: $radius-1;
+    border: solid $length-1 $accent-200;
+    border-bottom-width: $length-4;
+    text-shadow: 0 $length-1 0 $white;
+    color: $accent-900;
 }
 
 // Code inline
@@ -351,10 +352,15 @@ p,
 li,
 td {
     code:not(.hljs) {
-        color: #A00;
-        background: #EEE;
-        border: 1px solid #CCC;
-        padding: 0 5px;
+        display: inline-block;
+        padding: $length-2 $length-6;
+
+        background: $red-100;
+
+        border: $length-1 solid $red-200;
+        border-radius: $radius-1;
+
+        color: $red-800;
     }
 }
 
@@ -367,6 +373,7 @@ td {
     &:focus {
         text-decoration: underline;
     }
+
     .ping-username {
       font-weight: bold;
     }
@@ -377,16 +384,16 @@ td {
     overflow: auto;
 
     mathjax {
-        font-size: 16px;
-        font-size: 1.6rem;
+        font-size: $size-9
     }
 }
 
-.footnote, .footnotes{
+.footnote, .footnotes {
     opacity: .7;
 
     ol {
-        padding-left: 25px;
+        padding-left: $length-24;
+
         p {
             display: inline;
         }
@@ -455,5 +462,5 @@ li.task-list-item {
 }
 
 .warn-typo {
-    height: 20px;
+    height: $length-20;
 }

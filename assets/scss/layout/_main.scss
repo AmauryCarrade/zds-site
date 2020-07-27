@@ -9,6 +9,7 @@
     button.ico-search {
         font-size: 0px;
     }
+
     h1,
     h2 {
         font-size: 22px;
@@ -91,7 +92,9 @@
     }
 
     .force-blue {
-        color:#1088bf !important;
+        &, & a {
+            color: $primary-800 !important;
+        }
     }
 
     li.simple-create-button {
